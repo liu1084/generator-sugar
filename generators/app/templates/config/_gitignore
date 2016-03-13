@@ -1,0 +1,5 @@
+.project
+.idea
+node_modules
+bower_modules
+dist
