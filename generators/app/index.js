@@ -85,6 +85,15 @@ var SugarAppGenerator = yeoman.generators.Base.extend({
             this.mkdir(this.SOURCE + '/common');
             this.mkdir(this.SOURCE + '/sass');
 
+            //create MVC directories
+            this.mkdir(this.SOURCE + '/app/controllers');
+            this.mkdir(this.SOURCE + '/app/services');
+            this.mkdir(this.SOURCE + '/views');
+
+            //create assets directories
+            this.mkdir(this.SOURCE + '/assets/css');
+            this.mkdir(this.SOURCE + '/assets/img');
+
             this.copy('static/img/favicon.ico', this.SOURCE + '/assets/img/favicon.ico', this, {});
             universalCopy('static/fonts', this.SOURCE + '/assets/fonts', this, {});
             universalCopy('static/sass', this.SOURCE, this, {});
