@@ -1,0 +1,31 @@
+@import "../config/grids";
+@import "../variables";
+
+.main {
+  @include container;
+
+  nav {
+    div {
+      @include span(1/3 * 100% no-gutter border-box);
+    }
+  }
+
+  .footer{
+    @include full;
+    div:nth-child(1){
+      @include span(1 at 1 of 5);
+    }
+    div:nth-child(1){
+      @include span(2 at 1 of 5);
+    }
+    div:nth-child(1){
+      @include span(3 at 1 of 5);
+    }
+    div:nth-child(1){
+      @include span(4 at 1 of 5);
+    }
+    div:nth-child(1){
+      @include span(last 1 at 1 of 5);
+    }
+  }
+}

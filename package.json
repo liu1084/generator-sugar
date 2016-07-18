@@ -1,13 +1,13 @@
 {
   "name": "generator-sugar",
   "version": "1.0.0",
-  "description": "A generator for web application development based angular javascript",
+  "description": "A generator for web application development based on jQuery & SCSS",
   "main": "generators/app/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "angular",
+    "compass",
     "web application",
     "frontend"
   ],

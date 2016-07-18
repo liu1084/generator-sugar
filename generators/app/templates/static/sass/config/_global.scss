@@ -1,0 +1,45 @@
+body {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+}
+
+ul, li, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+input, select, textarea {
+  border: 0;
+  background-color: #fff;
+  outline: none;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
+input, select {
+  height: 30 * $onePx;
+  line-height: 30 * $onePx;
+}
+
+input[type="date"] {
+  height: 30 * $onePx;
+  line-height: 30 * $onePx;
+}
+
+.footer {
+  height: 150 * $onePx;
+  line-height: 150 * $onePx;
+  text-align: center;
+  background-color: #f2f2f4;
+}
+
+select, input {
+  width: 210 * $onePx;
+  max-width: 210 * $onePx;
+}
+
+//bootstrap dialog
+.modal-body {
+  padding: 0;
+}

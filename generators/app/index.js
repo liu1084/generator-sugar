@@ -70,25 +70,26 @@ var SugarAppGenerator = yeoman.generators.Base.extend({
             this.SOURCE = this.projectName + '/src';
             this.TEST = this.projectName + '/test';
             this.VENDOR = this.projectName + '/vendor';
-            this.BUILD = this.projectName + '/build';
             this.DIST = this.projectName + '/dist';
 
             this.mkdir(this.SOURCE);
             this.mkdir(this.TEST);
             this.mkdir(this.VENDOR);
-            this.mkdir(this.BUILD);
             this.mkdir(this.DIST);
 
             this.mkdir(this.SOURCE + '/app');
-            this.PLUGIN = this.SOURCE + '/plugin';
-            this.mkdir(this.PLUGIN);
+            this.mkdir(this.SOURCE + '/app/plugins');
             this.mkdir(this.SOURCE + '/assets');
+            this.mkdir(this.SOURCE + '/assets/css');
+            this.mkdir(this.SOURCE + '/assets/img');
             this.mkdir(this.SOURCE + '/common');
             this.mkdir(this.SOURCE + '/sass');
 
             this.copy('static/img/favicon.ico', this.SOURCE + '/assets/img/favicon.ico', this, {});
             universalCopy('static/fonts', this.SOURCE + '/assets/fonts', this, {});
-            this.copy('config/_template.js', this.SOURCE + '/app/plugin/template.js', this, {});
+            universalCopy('static/sass', this.SOURCE, this, {});
+            this.copy('config/_config.rb', this.SOURCE + '/config.rb', this, {});
+            this.copy('config/_template.js', this.SOURCE + '/app/plugins/template.js', this, {});
             this.template('static/html/index.html', this.SOURCE + '/index.html', this, {});
         },
 

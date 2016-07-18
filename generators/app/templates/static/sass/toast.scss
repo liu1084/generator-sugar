@@ -1,0 +1,56 @@
+@import "config/mixins";
+
+.toast {
+  @include toast;
+  text-align: center;
+  padding: 40 * $onePx 0;
+  border: 2px solid #CCC;
+  //display: none;
+  .logo {
+    $height: 34 * $onePx;
+    width: $height;
+    height: $height;
+    line-height: $height;
+    span {
+      left: 83.3 * $onePx;
+      top: 0;
+      font-size: 34 * $onePx;
+    }
+    position: relative;
+    margin-bottom: 16 * $onePx;
+  }
+  .message {
+    height: 12 * $onePx;
+    line-height: 12 * $onePx;
+    font-size: 12px;
+    color: #ffffff;
+    text-align: center;
+  }
+}
+
+.toast-success {
+  @extend .toast;
+  .logo {
+    span {
+      color: #7ed321;
+    }
+  }
+}
+
+.toast-warning {
+  @extend .toast;
+  .logo {
+    span {
+      color: #fd702f;
+    }
+  }
+}
+
+.toast-info {
+  @extend .toast;
+  .logo {
+    span {
+      color: #fff;
+    }
+  }
+}
