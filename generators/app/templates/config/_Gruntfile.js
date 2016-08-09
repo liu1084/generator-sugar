@@ -202,8 +202,8 @@ module.exports = function (grunt) {
                 // custom options, see below
             },
             main: {
-                src: ['js/app/plugins/**/*.hbs', 'js/app/admin/**/*.hbs'],
-                dest: 'js/app/plugins/other/templates.js'
+                src: ['src/app/components/**/*.hbs'],
+                dest: 'dist/templates.js'
             }
         },
         css_sprite: {

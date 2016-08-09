@@ -1,0 +1,55 @@
+/* line 3, ../../sass/toast.scss */
+.toast, .toast-success, .toast-warning, .toast-info {
+  -moz-border-radius: 0.3125rem;
+  -webkit-border-radius: 0.3125rem;
+  border-radius: 0.3125rem;
+  width: 12.5rem;
+  height: 8.75rem;
+  opacity: .6;
+  background-color: #000;
+  position: absolute;
+  z-index: 2048;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 2.5rem 0;
+  border: 2px solid #CCC;
+}
+/* line 9, ../../sass/toast.scss */
+.toast .logo, .toast-success .logo, .toast-warning .logo, .toast-info .logo {
+  width: 2.125rem;
+  height: 2.125rem;
+  line-height: 2.125rem;
+  position: relative;
+  margin-bottom: 1rem;
+}
+/* line 14, ../../sass/toast.scss */
+.toast .logo span, .toast-success .logo span, .toast-warning .logo span, .toast-info .logo span {
+  left: 5.20625rem;
+  top: 0;
+  font-size: 2.125rem;
+}
+/* line 22, ../../sass/toast.scss */
+.toast .message, .toast-success .message, .toast-warning .message, .toast-info .message {
+  height: 0.75rem;
+  line-height: 0.75rem;
+  font-size: 12px;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* line 34, ../../sass/toast.scss */
+.toast-success .logo span {
+  color: #7ed321;
+}
+
+/* line 43, ../../sass/toast.scss */
+.toast-warning .logo span {
+  color: #fd702f;
+}
+
+/* line 52, ../../sass/toast.scss */
+.toast-info .logo span {
+  color: #fff;
+}

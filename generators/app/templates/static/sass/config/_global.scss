@@ -1,6 +1,11 @@
+@import "compass";
 body {
   font-family: $font-family-base;
   font-size: $font-size-base;
+}
+
+.user-no-select{
+  @include user-select(none);
 }
 
 ul, li, ol {
@@ -13,8 +18,8 @@ input, select, textarea {
   border: 0;
   background-color: #fff;
   outline: none;
-  -webkit-appearance: none;
-  -webkit-border-radius: 0;
+  @include appearance(none);
+  @include border-radius(0);
 }
 
 input, select {
@@ -35,6 +40,6 @@ input[type="date"] {
 }
 
 select, input {
-  width: 210 * $onePx;
-  max-width: 210 * $onePx;
+  width: 100%;
+  max-width: 100%;
 }
