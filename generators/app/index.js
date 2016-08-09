@@ -82,6 +82,7 @@ var SugarAppGenerator = yeoman.generators.Base.extend({
             this.mkdir(this.SOURCE + '/assets');
             this.mkdir(this.SOURCE + '/assets/css');
             this.mkdir(this.SOURCE + '/assets/img');
+            this.mkdir(this.SOURCE + '/assets/fonts');
             this.mkdir(this.SOURCE + '/common');
             this.mkdir(this.SOURCE + '/sass');
 
@@ -96,8 +97,8 @@ var SugarAppGenerator = yeoman.generators.Base.extend({
 
             this.copy('static/img/favicon.ico', this.SOURCE + '/assets/img/favicon.ico', this, {});
             universalCopy('static/fonts', this.SOURCE + '/assets/fonts', this, {});
-            universalCopy('static/sass', this.SOURCE, this, {});
-            this.copy('config/_config.rb', this.SOURCE + '/config.rb', this, {});
+            universalCopy('static/sass', this.SOURCE + '/assets/sass', this, {});
+            this.copy('config/_config.rb', this.projectName + '/config.rb', this, {});
             this.copy('config/_template.js', this.SOURCE + '/app/plugins/template.js', this, {});
             this.template('static/html/index.html', this.SOURCE + '/index.html', this, {});
         },
@@ -145,7 +146,7 @@ var SugarAppGenerator = yeoman.generators.Base.extend({
     install: function () {
         var done = this.async();
         //UX dependencies
-        this.spawnCommand('cnpm', ['install', '--save'], {cwd: this.projectName}).on('exit', function () {
+        this.spawnCommand('npm', ['install', '--save'], {cwd: this.projectName}).on('exit', function () {
             this.spawnCommand('bower', ['install', '--save'], {cwd: this.projectName});
             done();
         }.bind(this));
@@ -155,7 +156,7 @@ var SugarAppGenerator = yeoman.generators.Base.extend({
         var done = this.async();
         this.log('Thanks to your using this application for your scaffolding...');
         this.log('will be installed, please waiting for a moment.');
-        this.log('If errors, please run `cnpm install & bower install` manual on console.');
+        this.log('If errors, please run `npm install & bower install` manual on console.');
         done();
     }
 });

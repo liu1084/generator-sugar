@@ -4,13 +4,7 @@ $susy: (
         columns: 12,
         gutters: 1/4,
         math: fluid,
-        global-box-sizing: border-box,
-        debug: (
-                image: hide,
-                color: rgba(#66f, .25),
-                output: background,
-                toggle: top right,
-        ),
+        global-box-sizing: border-box
 );
 
 @include border-box-sizing;
