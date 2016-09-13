@@ -1,16 +1,21 @@
-This project is scaffold for angular web application development.
+This project is scaffold for web application development.
 *****
 
 How to use
 =====
-* git clone git@github.com:liu1084/generator-sugar.git
-* cd generator-sugar
-* npm install
-* npm link
+
+```shell
+$ git clone git@github.com:liu1084/generator-sugar.git
+$ cd generator-sugar
+$ npm install
+$ npm link
+```
 
 Generate your web application scaffold
 =====
-* yo sugar
+```shell
+yo sugar
+```
 
 
 

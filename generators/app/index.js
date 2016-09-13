@@ -1,25 +1,27 @@
 /*
- * The MIT License
  *
- * Copyright (c) 2015-2016 by Jim liu
+ *  * The MIT License
+ *  *
+ *  * Copyright (c) 2015-2016 by Jim Liu
+ *  *
+ *  * Permission is hereby granted, free of charge, to any person obtaining a copy
+ *  * of this software and associated documentation files (the "Software"), to deal
+ *  * in the Software without restriction, including without limitation the rights
+ *  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ *  * copies of the Software, and to permit persons to whom the Software is
+ *  * furnished to do so, subject to the following conditions:
+ *  *
+ *  * The above copyright notice and this permission notice shall be included in
+ *  * all copies or substantial portions of the Software.
+ *  *
+ *  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  * THE SOFTWARE.
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
  */
 
 'use strict';
@@ -31,14 +33,15 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var generators = require('yeoman-generator');
-var universalCopy = require('universal-copy');
+var ncp = require('ncp').ncp;
+ncp.limit = 16;
 
 var SugarAppGenerator = yeoman.generators.Base.extend({
     constructor: function () {
         generators.Base.apply(this, arguments);
     },
     initializing: function () {
-        this.log('angular application generator is running...');
+        this.log('web application generator is running...');
         this.pkg = require('../../package.json');
     },
     prompting: function () {
@@ -49,7 +52,7 @@ var SugarAppGenerator = yeoman.generators.Base.extend({
                 type: 'input',
                 name: 'projectName',
                 message: '(1/5)What\'s the name of project?',
-                default: 'web-app-sugar',
+                default: 'web-app',
                 validate: function (input) {
                     if (/^([a-zA-Z0-9_-]*)$/.test(input)) return true;
                     return 'Your application name cannot contain special characters or a blank space, using the default name instead';
@@ -86,16 +89,14 @@ var SugarAppGenerator = yeoman.generators.Base.extend({
             this.mkdir(this.SOURCE + '/common');
             this.mkdir(this.SOURCE + '/sass');
 
-            //create MVC directories
+            //create html directories
             this.mkdir(this.SOURCE + '/views');
 
-            //create assets directories
-            this.mkdir(this.SOURCE + '/assets/css');
-            this.mkdir(this.SOURCE + '/assets/img');
-            universalCopy('static/app', this.SOURCE + '/app', this, {});
-            this.copy('static/img/favicon.ico', this.SOURCE + '/assets/img/favicon.ico', this, {});
-            universalCopy('static/fonts', this.SOURCE + '/assets/fonts', this, {});
-            universalCopy('static/sass', this.SOURCE + '/assets/sass', this, {});
+            ncp('generators/app/templates/static/app', this.SOURCE + '/app', function(err){
+				if (err){
+					return console.log(err);
+				}
+			});
             this.copy('config/_config.rb', this.projectName + '/config.rb', this, {});
             this.template('static/views/index.html', this.SOURCE + '/views/index.html', this, {});
         },

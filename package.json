@@ -1,7 +1,7 @@
 {
   "name": "generator-sugar",
   "version": "1.0.0",
-  "description": "A generator for web application development based on jQuery & SCSS",
+  "description": "A generator for web application development based on VUE, jQuery & SCSS",
   "main": "generators/app/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,7 +18,7 @@
     "load-grunt-tasks": "^1.0.0",
     "mkdirp": "^0.5.1",
     "mocha": "*",
-    "universal-copy": "^2.0.0",
+    "ncp": "^2.0.0",
     "yeoman-generator": "^0.17.0",
     "yo": "~1.3.0",
     "yosay": "^0.3.0"
