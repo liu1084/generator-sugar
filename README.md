@@ -25,8 +25,10 @@ Note
 When you want to use `sass` to make your web application layout & style, you must install ruby firstly.
 
 ### Step
-1. install ruby & make gem in your PATH;
+1. install ruby & make gem in your PATH
+
 #### linux OS
+
 ```shell
 export RUBY_HOME=/usr/local/ruby2
 export PATH=$PATH:$RUBY_HOME/bin
