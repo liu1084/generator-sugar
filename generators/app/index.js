@@ -92,7 +92,7 @@ var SugarAppGenerator = yeoman.generators.Base.extend({
             //create html directories
             this.mkdir(this.SOURCE + '/views');
 
-            ncp('generators/app/templates/static/app', this.SOURCE + '/app', function(err){
+            ncp('generators/app/templates/static/', this.SOURCE + '/', function(err){
 				if (err){
 					return console.log(err);
 				}
